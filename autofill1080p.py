@@ -52,7 +52,7 @@ def get_rates():
     pyautogui.moveTo(1311, 357, duration=0.5)
     pyautogui.click()
     # virtual
-    pyautogui.moveTo(1352, 448, duration=0.5)
+    pyautogui.moveTo(1291, 490, duration=0.5)
     pyautogui.click()
     # settlement tab
     pyautogui.moveTo(576, 208, duration=0.5)

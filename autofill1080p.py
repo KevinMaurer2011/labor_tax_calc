@@ -23,6 +23,7 @@ def get_rates():
     try:
         combined_tax = tax.cell(row=taxrow, column=4).value
         tax_percent = (float(combined_tax)) * 100
+        tax_rounded = round(tax_percent,4)
     except:
         print('No tax found sorry')
 
@@ -34,23 +35,26 @@ def get_rates():
         framerate = str(labor.cell(row=ziprow, column=5).value)
         pandmrate = str(labor.cell(row=ziprow, column=6).value)
 
-        pyautogui.moveTo(345, 175, duration=0.05)
+        # click rates
+        pyautogui.moveTo(415, 210, duration=0.05)
         pyautogui.click()
-        pyautogui.moveTo(40, 200, duration=0.05)
+        # click labor
+        pyautogui.moveTo(40, 240, duration=0.05)
         pyautogui.click()
-        pyautogui.moveTo(925, 300, duration=.05)
+        # selects labor rates
+        pyautogui.moveTo(940, 350, duration=.05)
         pyautogui.click()
         pyautogui.typewrite(bodyrate)
-        pyautogui.moveRel(0, 20, duration=.05)
+        pyautogui.moveRel(0, 22, duration=.05)
         pyautogui.click()
         pyautogui.typewrite(paintrate)
-        pyautogui.moveRel(0, 20, duration=.05)
+        pyautogui.moveRel(0, 22, duration=.05)
         pyautogui.click()
         pyautogui.typewrite(mechrate)
-        pyautogui.moveRel(0, 20, duration=.05)
+        pyautogui.moveRel(0, 22, duration=.05)
         pyautogui.click()
         pyautogui.typewrite(framerate)
-        pyautogui.moveRel(0, 160, duration=.05)
+        pyautogui.moveRel(0, 170, duration=.05)
         pyautogui.click()
         pyautogui.typewrite(pandmrate)
 
@@ -58,14 +62,15 @@ def get_rates():
         labor_taxed_states = (
             'AR', 'CT', 'FL', 'HI', 'IA', 'KS', 'MD', 'MN', 'MS', 'NE', 'NJ', 'NY', 'OH', 'PA', 'SD', 'TX', 'WV', 'WI')
 
+        # if rates are taxed, checks boxes
         if tax.cell(row=taxrow, column=1).value in labor_taxed_states:
-            pyautogui.moveTo(997, 298, duration=.05)
+            pyautogui.moveTo(997, 345, duration=.05)
             pyautogui.click()
-            pyautogui.moveRel(0, 22, duration=.05)
+            pyautogui.moveRel(0, 25, duration=.05)
             pyautogui.click()
-            pyautogui.moveRel(0, 22, duration=.05)
+            pyautogui.moveRel(0, 25, duration=.05)
             pyautogui.click()
-            pyautogui.moveRel(0, 22, duration=.05)
+            pyautogui.moveRel(0, 25, duration=.05)
             pyautogui.click()
         else:
             print('Labor not Taxed: Skipping')
@@ -75,9 +80,15 @@ def get_rates():
 
     try:
         print('Filling in your tax rate for you. Standby')
-        pyautogui.moveTo(215, 200, duration=.05)
+        # selects taxes tab, and tax rate
+        pyautogui.moveTo(245, 235, duration=.05)
         pyautogui.click()
-        pyautogui.moveTo(400, 320, duration=.05)
+        # for other type tax setup
+        pyautogui.moveTo(230, 363, duration=.05)
+        pyautogui.click()
+        pyautogui.typewrite(str(tax_percent))
+        # for traveler type tax setup
+        pyautogui.moveTo(425, 375, duration=.05)
         pyautogui.click()
         pyautogui.click()
         pyautogui.typewrite(str(tax_percent))
@@ -86,6 +97,12 @@ def get_rates():
     except:
         pass
 
+    print(f'Body: {bodyrate}')
+    print(f'Paint: {paintrate}')
+    print(f'Mech: {mechrate}')
+    print(f'Frame: {framerate}')
+    print(f'P Supplies: {pandmrate}')
+    print(f'Tax Rate: {tax_rounded}')
     print('All done :)')
 
 

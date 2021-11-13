@@ -1,5 +1,6 @@
 from openpyxl import load_workbook
 import time
+from decimal import *
 
 
 def get_rates():
@@ -21,7 +22,8 @@ def get_rates():
 
     try:
         combined_tax = tax.cell(row=taxrow, column=4).value
-        tax_percent = (float(combined_tax)) * 100
+        tax_percent = round(Decimal(combined_tax),4) *100
+
     except:
         print('No tax found sorry')
 
@@ -64,7 +66,7 @@ else:
     print('Three easy payments of $1,999,999 for full access!')
     time.sleep(2)
     print('I leave now. Bye')
-    time.sleep(5)
+    time.sleep(3)
     quit()
 
 while True:

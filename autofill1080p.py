@@ -27,6 +27,59 @@ def get_rates():
     except:
         print('No tax found sorry')
 
+    #fill in some admin data
+    # contact
+    pyautogui.moveTo(58, 209, duration=0.5)
+    pyautogui.click()
+    time.sleep(1)
+    # estimator
+    pyautogui.moveTo(1806, 345, duration=0.5)
+    pyautogui.click()
+    # jason
+    pyautogui.moveTo(1824, 502, duration=0.5)
+    pyautogui.click()
+    # inspection tab
+    pyautogui.moveTo(220, 210, duration=0.5)
+    pyautogui.click()
+    time.sleep(1)
+    # open date picker
+    pyautogui.moveTo(1190, 316, duration=0.05)
+    pyautogui.click()
+    # select today
+    pyautogui.moveTo(1327, 507, duration=0.5)
+    pyautogui.click()
+    # site type dropdown
+    pyautogui.moveTo(1311, 357, duration=0.5)
+    pyautogui.click()
+    # virtual
+    pyautogui.moveTo(1335, 430, duration=0.5)
+    pyautogui.click()
+    # settlement tab
+    pyautogui.moveTo(576, 208, duration=0.5)
+    pyautogui.click()
+    time.sleep(1)
+    # open settlement decision
+    pyautogui.moveTo(1697, 578, duration=0.5)
+    pyautogui.click()
+    # set repairable
+    pyautogui.moveTo(1706, 621, duration=0.5)
+    pyautogui.click()
+    # save file
+    pyautogui.moveTo(37, 95, duration=0.5)
+    pyautogui.click()
+    time.sleep(5)
+    # convert to job
+    pyautogui.moveTo(333, 98, duration=0.5)
+    pyautogui.click()
+    time.sleep(5)
+    # job number box
+    pyautogui.moveTo(1000, 513, duration=0.5)
+    pyautogui.click()
+    pyautogui.typewrite(file_number)
+    pyautogui.typewrite(['enter'])
+    time.sleep(3)
+
+
     try:
         print('Filling in your rates for you. Standby')
         bodyrate = str(labor.cell(row=ziprow, column=2).value)

@@ -178,4 +178,5 @@ else:
 
 while True:
     zip_code = input('Zip Code?')
+    file_number = input('File Number?')
     get_rates()

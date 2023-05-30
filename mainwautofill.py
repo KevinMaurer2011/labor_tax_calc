@@ -378,10 +378,8 @@ while True:
     if program_type == 2:
         zip_code = input('Zip Code?')
         file_number = input('File Number?')
-        #test 
         autofill1080()
     # rates only
     if program_type == 3:
-        zip_code = input('Zip Code?')
-        #test 
+        zip_code = input('Zip Code?') 
         get_rates()
